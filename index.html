@@ -24,15 +24,18 @@
     </select>
     <footer>This project was coded by Andrea Brezanova and is <a href="" target="_blank">open sourced on GitHub</a>
     </footer>
-    <script scr="main.js">
-        function showItem(event) {
+    <script>
+        function showDate(event) {
             if (event.target.value.length > 0) {
-
+                let currentDate = moment()
+                .tz(event.target.value)
+                .format("dddd, MMMM D, H:mm:ss A ");
+                alert(`It is ${currentDate} in ${event.target.value}`)
             }
         }
 
         let selectElement = document.querySelector("#countries");
-        selectElement.addEventListener("change", showItem);
+        selectElement.addEventListener("change", showDate);
     </script>
 </body>
 </html>
